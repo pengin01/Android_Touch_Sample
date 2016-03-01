@@ -2,8 +2,8 @@
 Android Touchサンプル
 
 取り込み方
-1.自分のGitHubアカウントでこのプロジェクトをForkする
-2.AndroidStudioを起動し、Quick StartからCheck out project from Version ControlからGitHubを選ぶ
+1.自分のGitHubアカウントでこのプロジェクトをForkする  
+2.AndroidStudioを起動し、Quick StartからCheck out project from Version ControlからGitHubを選ぶ  
 
 #### Touch1  
 - 背景に画像

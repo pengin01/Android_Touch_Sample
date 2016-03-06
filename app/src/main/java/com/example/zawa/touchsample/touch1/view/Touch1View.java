@@ -51,8 +51,7 @@ public class Touch1View extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas)
-    {
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
         canvas.drawColor(Color.WHITE);
@@ -61,8 +60,7 @@ public class Touch1View extends View {
         //canvas.drawBitmap(bgImg, 0, 0, paint);
         canvas.drawBitmap(bgImg, 0, 450, paint);
 
-
-        if(posTouch != null) {
+        if (posTouch != null) {
             //画面の中心に円を描く
             canvas.drawCircle(posTouch.x, posTouch.y, 25, paint);
         }
@@ -73,23 +71,23 @@ public class Touch1View extends View {
 
         String sEvent = "";
         String sPressure = "";
-        String sTime =String.valueOf(event.getDownTime());
-        int posX,posY;
+        String sTime = String.valueOf(event.getDownTime());
+        int posX, posY;
 
         switch (event.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
                 //画面がタッチされたときの動作
 
-                posX =(int)event.getX();
-                posY =(int)event.getY();
+                posX = (int) event.getX();
+                posY = (int) event.getY();
 
                 //タッチされた座標を取得
                 posTouch = new Point(posX, posY);
 
                 sEvent = "タッチ";
                 sPressure = String.valueOf(event.getPressure());
-                viewLog(sEvent, sTime, posX, posY,sPressure);
+                viewLog(sEvent, sTime, posX, posY, sPressure);
 
                 // onDraw関数を実行
                 invalidate();
@@ -98,15 +96,15 @@ public class Touch1View extends View {
 
             case MotionEvent.ACTION_MOVE:
                 //タッチしたまま移動したときの動作
-                posX =(int)event.getX();
-                posY =(int)event.getY();
+                posX = (int) event.getX();
+                posY = (int) event.getY();
 
                 //タッチされた座標を取得
                 posTouch = new Point(posX, posY);
 
                 sEvent = "動かしている";
                 sPressure = String.valueOf(event.getPressure());
-                viewLog(sEvent, sTime, posX, posY,sPressure);
+                viewLog(sEvent, sTime, posX, posY, sPressure);
 
                 // onDraw関数を実行
                 invalidate();
@@ -116,9 +114,9 @@ public class Touch1View extends View {
             case MotionEvent.ACTION_UP:
                 //タッチが離されたときの動作
 
-                posX =(int)event.getX();
+                posX = (int) event.getX();
                 posTouch = null;
-                posY =(int)event.getY();
+                posY = (int) event.getY();
 
 
                 sEvent = "離した";
@@ -137,6 +135,7 @@ public class Touch1View extends View {
         // ログを出力します
         Log.v("touch", sEvent + " 時間:" + sTime + "横:" + posX + "縦:" + posY);
     }
+
     private void viewLog(String sEvent, String sTime, int posX, int posY, String sPressure) {
         // ログを出力します
         Log.v("touch", sEvent + " 時間:" + sTime + "横:" + posX + "縦:" + posY + "強さ" + sPressure);
